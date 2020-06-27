@@ -1,16 +1,16 @@
 package net.tooka;
 
-import net.tooka.config.DbConfig;
-import net.tooka.config.SqlPropertiesConfig;
+import net.tooka.dao.QueryFactory;
+import net.tooka.dto.UserDto;
+import net.tooka.entity.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.beans.IntrospectionException;
+import java.lang.reflect.InvocationTargetException;
 
 public class Main {
 
-  public static void main(String[] args) {
-      DbConfig dbConfig = DbConfig.getDbConfig();
+  public static void main(String[] args) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
+      QueryFactory<User> queryFactory = new QueryFactory<>();
+    System.out.println(queryFactory.save(new User()));
   }
 }
