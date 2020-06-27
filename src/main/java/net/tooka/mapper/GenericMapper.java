@@ -20,4 +20,5 @@ public class GenericMapper<S, D> {
 
     return s;
   }
+
 }

@@ -1,17 +1,19 @@
 package net.tooka.dao;
 
+import java.beans.IntrospectionException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface GenericDao<T, ID> {
+public interface GenericDao<T> {
 
-  T save(T t) throws SQLException;
+  void save(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
 
-  void update(T t);
+  void update(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
 
-  void delete(T t);
+  void delete(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
 
-  List<T> findAll();
+  List<T> findAll(T t) throws SQLException;
 
-  T findByID(ID id);
+  T findByID(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
 }
