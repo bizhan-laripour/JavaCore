@@ -7,13 +7,23 @@ import java.util.List;
 
 public interface GenericDao<T> {
 
-  void save(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
+  void save(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException;
 
-  void update(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
+  void update(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException;
 
-  void delete(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
+  void delete(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException;
 
-  List<T> findAll(T t) throws SQLException;
+  List<T> findAll(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException;
 
-  T findByID(T t) throws SQLException, IllegalAccessException, IntrospectionException, InvocationTargetException;
+  T findByID(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException;
 }

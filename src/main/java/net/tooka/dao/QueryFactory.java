@@ -5,13 +5,17 @@ import java.lang.reflect.InvocationTargetException;
 
 public interface QueryFactory<T> {
 
-    public String save(T t) throws IntrospectionException, InvocationTargetException, IllegalAccessException;
+   String save(T t)
+      throws IntrospectionException, InvocationTargetException, IllegalAccessException;
 
-    public String update(T t) throws IntrospectionException, InvocationTargetException, IllegalAccessException;
+   String update(T t)
+      throws IntrospectionException, InvocationTargetException, IllegalAccessException;
 
-    public String delete(T t) throws IntrospectionException, InvocationTargetException, IllegalAccessException;
+   String delete(T t)
+      throws IntrospectionException, InvocationTargetException, IllegalAccessException;
 
-    public String findAll(T t);
+   String findAll(T t);
 
-    public String findById(T t) throws IntrospectionException, InvocationTargetException, IllegalAccessException;
+   String findById(T t)
+      throws IntrospectionException, InvocationTargetException, IllegalAccessException;
 }

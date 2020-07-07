@@ -62,6 +62,7 @@ public class DbConfig {
         try {
           Statement statement = connection.createStatement();
           statement.executeUpdate(sql);
+
         } catch (SQLException e) {
           continue;
         }

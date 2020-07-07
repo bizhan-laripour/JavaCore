@@ -78,7 +78,7 @@
                 checkedLoanTypes.push($(this).val());
             });
             if (checkedLoanTypes.includes("jealeh") && !checkedLoanTypes.includes("sale")
-                && !checkedLoanTypes.includes("buy")) {
+                && !checkedLoanTypes.includes("buy") ) {
                 $("#married").prop("checked" , false).prop("disabled" , true);
             }else{
                 $("#married").prop("disabled" , false);
@@ -95,7 +95,7 @@
             });
             if(checked.includes("oragh")){
                 $("#pasAndaz").prop("disabled" , true);
-                $("#mehr").prop("disabled" , true);
+                $("#mehr").prop("disabled" , true).prop("checked" , false);
             }else{
                 $("#pasAndaz").prop("disabled" , false);
                 $("#mehr").prop("disabled" , false);
@@ -103,15 +103,16 @@
 
             if(checked.includes("pasAndaz")){
                 $("#oragh").prop("disabled" , true);
-                $("#mehr").prop("disabled" , true);
+
+                $("#mehr").prop("disabled" , true).prop("checked" , false);
             }else {
                 $("#oragh").prop("disabled" , false);
             }
             if(checked.includes("sepordeh")){
-                $("#mehr").prop("disabled" , true);
+                $("#mehr").prop("disabled" , true).prop("checked" , false);
             }
             if(checked.includes("mehr")){
-                $("#married").prop("disabled" , true);
+                $("#married").prop("disabled" , true).prop("checked" , false);
             }else {
                 $("#married").prop("disabled" , false);
             }

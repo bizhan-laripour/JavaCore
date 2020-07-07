@@ -87,7 +87,7 @@ public class QueryFactoryImpl<T> implements QueryFactory<T> {
 
   @Override
   public String findAll(T t) {
-    return "SELECT * FROM " + t.getClass().getSimpleName();
+    return "SELECT * FROM " + t.getClass().getSimpleName().toUpperCase();
   }
 
   @Override

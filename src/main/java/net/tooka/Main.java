@@ -1,22 +1,33 @@
 package net.tooka;
 
-import net.tooka.dao.QueryFactory;
 import net.tooka.dao.impl.QueryFactoryImpl;
+import net.tooka.dao.impl.UserDaoImpl;
 import net.tooka.entity.User;
+import net.tooka.mapper.ResultSetMapperImpl;
+import net.tooka.service.impl.UserService;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
-      QueryFactory<User> queryFactory = new QueryFactoryImpl<>();
-      User user = new User();
-      user.setName("bizhan");
-      user.setId(1);
-      user.setLastName("hlkjsdhf");
-      user.setPassword("fdhlsahf");
-      user.setUsername("ashfhas");
-    System.out.println(queryFactory.findById(user));
+  public static void main(String[] args)
+      throws IllegalAccessException, IntrospectionException, InvocationTargetException,
+          SQLException {
+
+    UserService userService =
+        new UserService(new UserDaoImpl(new QueryFactoryImpl<>(), new ResultSetMapperImpl<>()));
+    //
+    List<User> users = userService.findAll(new User());
+
+    //      User user = new User();
+    //      user.setName("babak");
+    //      user.setLastName("laripour");
+    //      user.setUsername("babak.lp");
+    //      user.setPassword("password");
+    //      userService.save(user);
+
   }
 }

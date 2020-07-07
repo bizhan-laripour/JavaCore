@@ -11,18 +11,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GenericDaoImpl<T> implements GenericDao<T> {
 
-  private Connection connection = DbConfig.getConnection();
+  protected Connection connection = DbConfig.getConnection();
 
-  private QueryFactory<T> queryFactory;
+  protected QueryFactory<T> queryFactory;
 
-  private ResultSetMapper<T> resultSetMapper;
+  protected ResultSetMapper<T> resultSetMapper;
 
-  public GenericDaoImpl(QueryFactory<T> queryFactory , ResultSetMapper<T> resultSetMapper) {
+  public GenericDaoImpl(QueryFactory<T> queryFactory, ResultSetMapper<T> resultSetMapper) {
     this.queryFactory = queryFactory;
     this.resultSetMapper = resultSetMapper;
   }
@@ -31,7 +30,8 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
   public void save(T t)
       throws SQLException, IllegalAccessException, IntrospectionException,
           InvocationTargetException {
-    Statement statement = connection.createStatement();
+    Statement statement =
+        connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     statement.executeUpdate(queryFactory.save(t));
   }
 
@@ -39,7 +39,8 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
   public void update(T t)
       throws SQLException, IllegalAccessException, IntrospectionException,
           InvocationTargetException {
-    Statement statement = connection.createStatement();
+    Statement statement =
+        connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     statement.executeUpdate(queryFactory.update(t));
   }
 
@@ -47,25 +48,28 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
   public void delete(T t)
       throws SQLException, IllegalAccessException, IntrospectionException,
           InvocationTargetException {
-    Statement statement = connection.createStatement();
+    Statement statement =
+        connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     statement.executeUpdate(queryFactory.delete(t));
   }
 
   @Override
-  public List<T> findAll(T t) throws SQLException {
-    Statement statement = connection.createStatement();
+  public List<T> findAll(T t)
+      throws SQLException, IllegalAccessException, IntrospectionException,
+          InvocationTargetException {
+    Statement statement =
+        connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     ResultSet resultSet = statement.executeQuery(queryFactory.findAll(t));
-    List<T> list = new ArrayList<>();
-    return null;
-
+    return resultSetMapper.mapResultSetToEntity(resultSet, t);
   }
 
   @Override
   public T findByID(T t)
       throws SQLException, IllegalAccessException, IntrospectionException,
           InvocationTargetException {
-    Statement statement = connection.createStatement();
+    Statement statement =
+        connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     ResultSet resultSet = statement.executeQuery(queryFactory.findById(t));
-    return null;
+    return resultSetMapper.mapResultSetToEntity(resultSet , t).get(0);
   }
 }
