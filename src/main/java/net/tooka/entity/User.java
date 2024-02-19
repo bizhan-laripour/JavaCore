@@ -1,5 +1,8 @@
 package net.tooka.entity;
 
+import net.tooka.annotations.Entity;
+
+@Entity
 public class User {
 
     private int id;
