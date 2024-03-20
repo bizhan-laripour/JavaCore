@@ -7,4 +7,4 @@ i'm trying to focuse on base concepts of Object oriented like abstraction , inhe
 
 this is just a warm up in java core and until now it is not completed yet.
 
-try to enjoy coding. this is the way that you can be more eficient and more productive 😊
+try to enjoy coding. this is the way that you can be more eficient and more productive 
