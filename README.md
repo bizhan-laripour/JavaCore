@@ -1,7 +1,7 @@
 ### Java core project
-in this project i tried to make my own framework based on java core and servlets.
+In this project i tried to make my own Framework based on java core and Servlets.
 
-i tried to make a sample ORM and my own mysql dialect.
+I tried to make a sample ORM and my own Mysql dialect.
 
 I'm trying to focuse on base concepts of Object oriented like abstraction , inheritance , etc and best practice of design patterns
 
