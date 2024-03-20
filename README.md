@@ -3,7 +3,7 @@ In this project i tried to make my own Framework based on java core and Servlets
 
 I tried to make a sample ORM and my own Mysql dialect.
 
-I'm trying to focuse on base concepts of Object oriented like abstraction , inheritance , etc and best practice of design patterns
+I'm trying to focuse on base concepts Of Object oriented like abstraction , Inheritance , etc and best practice of Design patterns
 
 this is just a warm up in java core and it is not completed yet.
 
