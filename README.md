@@ -5,6 +5,6 @@ I tried to make a sample ORM and my own Mysql dialect.
 
 I'm trying to focuse on base concepts Of Object oriented like abstraction , Inheritance , etc and best practice of Design patterns
 
-this is just a warm up in java core and it is not completed yet.
+This is just a warm up in java core and It is not completed yet.
 
-try to enjoy coding. this is the way that you can be more eficient and more productive 
+Try to enjoy coding. this is the way That you can be more eficient and more Productive 
